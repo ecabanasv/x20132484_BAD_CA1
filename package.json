@@ -15,5 +15,9 @@
   },
   "devDependencies": {
     "truffle": "^5.4.0"
+  },
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
   }
 }
