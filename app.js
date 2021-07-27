@@ -4,8 +4,21 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+mongoose
+.connect(
+    process.env.MONGODB_ATLAS_URI,
+        {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        }
+)
+.then(() => console.log("MongoDB has been connected"))
+.catch((err) => console.log(err));
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
