@@ -9,11 +9,11 @@ var user_controller = require("../controllers/usersController");
 router.get("/login", async function (req, res, next) {
   var token = req.cookies.token;
   var userName = null;
-  try {
+  if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("home", { page: "Home", menuID: "home", name: userName  });
-  } catch (error) {
-    return res.render("login", { page: "Login", menuID: "login", name: null});
+    res.render("home", { page: "Home", menuID: "home", name: userName });
+  } else {
+    return res.render("login", { page: "Login", menuID: "login", name: null });
   }
 });
 
@@ -24,11 +24,11 @@ router.post("/login", user_controller.user_login_post);
 router.get("/signup", async function (req, res, next) {
   var token = req.cookies.token;
   var userName = null;
-  try {
+  if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("home", { page: "Home", menuID: "home", name: userName  });
-  } catch (error) {
-    return res.render("signup", { page: "Signup", menuID: "signup", name: null});
+    res.render("home", { page: "Home", menuID: "home", name: userName });
+  } else {
+    return res.render("signup", { page: "Signup", menuID: "signup", name: null });
   }
 });
 
