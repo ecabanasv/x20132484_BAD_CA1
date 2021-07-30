@@ -12,9 +12,12 @@ router.get("/", function (req, res, next) {
 router.get("/new-entry", async function (req, res, next) {
   var token = req.cookies.token;
   var username_id = null;
+  // var metaAddress = null;
   try {
     username_id = jwt.verify(token, "JournalJWT")._id;
+    // metaAddress = jwt.verify(token, "JournalJWT").address;
     console.log(username_id);
+    // console.log(metaAddress);
   } catch (error) {
     console.log(error);
     return res.redirect("/logout");
