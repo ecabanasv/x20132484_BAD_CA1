@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 mongoose
   .connect(process.env.MONGODB_ATLAS_URI, {
+    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

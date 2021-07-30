@@ -47,6 +47,7 @@ exports.user_login_post = function (req, res, next) {
         var token = jwt.sign(
           {
             _id: user._id,
+            username: user.username,
             address: user.address,
           },
           "JournalJWT",
