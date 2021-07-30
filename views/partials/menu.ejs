@@ -36,13 +36,18 @@
 
       <ul class="navbar-nav me-right">
         <li class="nav-item">
-          <a href="/login" class="nav-link">
-            <i class="bi bi-person-check"></i> Login</i>
-          </a>
+          <% if (name != null) { %>
+            <a href="/logout" class="nav-link">
+              Logged as <%= name %> (Logout) </a>
+            <% } else{ %>
+              <a href="/login" class="nav-link">
+                <i class="bi bi-person-check"></i> Login</i>
+              </a>
         </li>
         <li class="nav-item">
           <a href="/signup" class="nav-link"><i class="bi bi-person-plus"></i> Sign-up</i></a>
         </li>
+        <% } %>
       </ul>
     </div>
     <!-- Container -->
