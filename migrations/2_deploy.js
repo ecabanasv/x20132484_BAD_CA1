@@ -1,6 +1,6 @@
 // migrations/2_deploy.js
-const Journal = artifacts.require('journalList');
+const Diary = artifacts.require('diaryList');
 
 module.exports = async function (deployer) {
-  await deployer.deploy(Journal);
+  await deployer.deploy(Diary);
 };

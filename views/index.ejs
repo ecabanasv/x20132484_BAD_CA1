@@ -7,11 +7,16 @@
 
 <body>
   <% include partials/menu %>
+  <% if (name === null) { %>
+    <div class="alert alert-primary text-center" style="padding: 0;" role="alert">
+      To have full access to the functions of the diary. Would you mind <a href="/signup">registering</a> and <a href="/login">logging</a> in with your username/password?
+   </div>
+   <% } %>
     <div class="container-fluid bg-3 text-center">
-      <br>
-      <h3>
-        <%= page %>
-      </h3>
+          <br>
+          <h3>
+            <%= page %>
+          </h3>
     </div>
 </body>
 <% include partials/scripts %>

@@ -2,7 +2,6 @@ var mongoose = require("mongoose");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcrypt");
 var Users = require("../models/users.model");
-User = mongoose.model("users");
 
 // Signup (POST)
 exports.user_signup_post = function (req, res, next) {
@@ -53,7 +52,7 @@ exports.user_login_post = function (req, res, next) {
           "JournalJWT",
           { expiresIn: "7d" }
         );
-        res.cookie('token', token, {maxAge: 1000*60*60*24*7 })
+        res.cookie("token", token, { maxAge: 1000 * 60 * 60 * 24 * 7 });
         res.redirect("/");
       }
     }

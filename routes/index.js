@@ -1,6 +1,5 @@
 var express = require("express");
 var router = express.Router();
-var cookie = require("js-cookie");
 var jwt = require("jsonwebtoken");
 
 // Home - router
@@ -9,9 +8,18 @@ router.get("/", function (req, res, next) {
   var userName = null;
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("index", { page: "Home", menuID: "home", name: userName });
+    res.render("index", {
+      page: "Home",
+      menuID: "home",
+      name: userName,
+      access: 0,
+    });
   } else {
-    return res.render("index", { page: "Home", menuID: "home", name: null });
+    return res.render("index", {
+      page: "Home",
+      menuID: "home",
+      name: null
+    });
   }
 });
 
@@ -21,9 +29,17 @@ router.get("/new-entry", async function (req, res, next) {
   var userName = null;
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("new-entry", { page: "Add new entry", menuID: "new-entry", name: userName });
+    res.render("new-entry", {
+      page: "Add new entry",
+      menuID: "new-entry",
+      name: userName,
+    });
   } else {
-    return res.render("index", { page: "Home", menuID: "home", name: null });
+    return res.render("index", {
+      page: "Home",
+      menuID: "home",
+      name: null
+    });
   }
 });
 
@@ -35,7 +51,11 @@ router.get("/list-entries", function (req, res, next) {
   var userName = null;
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("list-entries", { page: "List of Journal entries", menuID: "list-entries", name: userName });
+    res.render("list-entries", {
+      page: "List of Journal entries",
+      menuID: "list-entries",
+      name: userName,
+    });
   } else {
     return res.render("index", { page: "Home", menuID: "home", name: null });
   }
@@ -61,9 +81,17 @@ router.get("/contact", function (req, res, next) {
   var userName = null;
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("contact", { page: "Contact", menuID: "contact", name: userName });
+    res.render("contact", {
+      page: "Contact",
+      menuID: "contact",
+      name: userName,
+    });
   } else {
-    return res.render("contact", { page: "Contact", menuID: "contact", name: null });
+    return res.render("contact", {
+      page: "Contact",
+      menuID: "contact",
+      name: null,
+    });
   }
 });
 

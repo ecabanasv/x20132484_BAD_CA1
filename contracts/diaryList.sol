@@ -2,10 +2,10 @@
 pragma solidity >=0.4.22 <0.9.0;
 pragma experimental ABIEncoderV2;
 
-contract journalList {
+contract diaryList {
     uint256 private entryCounter = 0;
 
-    struct journalEntry {
+    struct diaryEntry {
         uint256 id;
         uint256 date;
         string title;
@@ -14,7 +14,7 @@ contract journalList {
         address user_address;
     }
 
-    mapping(uint256 => journalEntry) public journalEntries;
+    mapping(uint256 => diaryEntry) public diaryEntries;
 
     event entryCreated(
         uint256 id,
@@ -52,7 +52,7 @@ contract journalList {
         string memory _content,
         uint256 _score
     ) public validScore(_score) emptyString(_title, _content) {
-        journalEntries[entryCounter] = journalEntry(
+        diaryEntries[entryCounter] = diaryEntry(
             entryCounter,
             block.timestamp,
             _title,
@@ -70,10 +70,10 @@ contract journalList {
         );
     }
 
-    function showListEntries() public view returns (journalEntry[] memory) {
-        journalEntry[] memory _entries = new journalEntry[](entryCounter);
+    function showListEntries() public view returns (diaryEntry[] memory) {
+        diaryEntry[] memory _entries = new diaryEntry[](entryCounter);
         for (uint256 i = 0; i < entryCounter; i++) {
-            _entries[i] = journalEntries[i];
+            _entries[i] = diaryEntries[i];
         }
         return _entries;
     }
@@ -84,9 +84,9 @@ contract journalList {
         string memory _content,
         uint256 _score
     ) public {
-        journalEntries[_id].title = _title;
-        journalEntries[_id].content = _content;
-        journalEntries[_id].score = _score;
+        diaryEntries[_id].title = _title;
+        diaryEntries[_id].content = _content;
+        diaryEntries[_id].score = _score;
         emit entryUpdated(_id, _title, _content, _score);
     }
 }
