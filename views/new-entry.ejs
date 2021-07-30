@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/header %>
+</head>
+
+<body>
+  <% include partials/menu %>
+    <div class="container-fluid bg-3 text-center">
+      <br>
+      <h3>
+        <%= page %>
+      </h3>
+      <br>
+      <div class="row">
+        <form>
+          <div class="col-md-3 offset-md-5">
+            <div class="form-group col-md-8">
+              <label for="inputTitle">Title</label>
+              <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+            </div>
+            <div class="form-group col-md-8">
+              <label for="inputContent">Content</label>
+              <textarea type="textbox" class="form-control" id="inputContent" placeholder="Content..." rows="4"></textarea>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="selectScore">Select Score</label>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+</body>
+<% include partials/scripts %>
+
+</html>
