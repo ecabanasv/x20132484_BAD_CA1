@@ -98,34 +98,36 @@ router.get("/list-entries", async (req, res, next) => {
   // Get token value if exist
   let token = req.cookies.token;
   let userName = null;
+  let moment = require('moment');
   // Empty array for user entries
   let userEntries = [];
-    try {
-      if (token) {
-        // Assign name & address from token
-        userName = jwt.verify(token, "JournalJWT").username;
-        userAddress = jwt.verify(token, "JournalJWT").address;
-      } else {
-        res.redirect("/logout");
-      }
-
-      let diaryList = await DiaryList.deployed();
-      diaryEntries = await diaryList.showListEntries.call();
-      for (let i = 0; i < diaryEntries.length; i++) {
-        if (diaryEntries[i][5].toLowerCase() == userAddress.toLowerCase()) {
-          userEntries.push(diaryEntries[i]);
-        }
-      }
-    } catch (err) {
-      console.log("error");
-      console.log(err);
+  try {
+    if (token) {
+      // Assign name & address from token
+      userName = jwt.verify(token, "JournalJWT").username;
+      userAddress = jwt.verify(token, "JournalJWT").address;
+    } else {
+      res.redirect("/logout");
     }
-    res.render("list-entries", {
-      page: "List of Journal entries",
-      menuID: "list-entries",
-      name: userName,
-      entries: userEntries,
-    });
+
+    let diaryList = await DiaryList.deployed();
+    diaryEntries = await diaryList.showListEntries.call();
+    for (let i = 0; i < diaryEntries.length; i++) {
+      if (diaryEntries[i][5].toLowerCase() == userAddress.toLowerCase()) {
+        userEntries.push(diaryEntries[i]);
+      }
+    }
+  } catch (err) {
+    console.log("error");
+    console.log(err);
+  }
+  res.render("list-entries", {
+    page: "List of Journal entries",
+    menuID: "list-entries",
+    name: userName,
+    entries: userEntries,
+    moment: moment
+  });
 });
 
 router.post("/list-entries", async (req, res, next) => {});

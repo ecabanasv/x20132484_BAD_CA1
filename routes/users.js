@@ -35,7 +35,11 @@ router.get("/signup", async function (req, res, next) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("home", { page: "Home", menuID: "home", name: userName });
   } else {
-    return res.render("signup", { page: "Signup", menuID: "signup", name: null });
+    return res.render("signup", {
+      page: "Signup",
+      menuID: "signup",
+      name: null,
+    });
   }
 });
 

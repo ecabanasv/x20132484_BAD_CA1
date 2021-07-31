@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),
-  bcrypt = require('bcrypt'),
+var mongoose = require("mongoose"),
+  bcrypt = require("bcrypt"),
   Schema = mongoose.Schema;
 
 const usersSchema = new Schema({
@@ -8,7 +8,7 @@ const usersSchema = new Schema({
   address: { type: String, required: true },
 });
 
-usersSchema.methods.comparePassword = function(password) {
+usersSchema.methods.comparePassword = function (password) {
   return bcrypt.compareSync(password, this.hashed_password);
 };
 

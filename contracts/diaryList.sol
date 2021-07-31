@@ -3,7 +3,6 @@ pragma solidity >=0.4.22 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 contract diaryList {
-
     // Counter for Diary entries
     uint256 private entryCounter = 0;
 

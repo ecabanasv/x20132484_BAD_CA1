@@ -3,6 +3,7 @@
 
 <head>
   <% include partials/header %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -25,19 +26,17 @@
       } -->
 
       <% for(var i=0; i < entries.length; i++) { %>
-
-        <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
-        Date: <%= entries[i][1] %>
-          <form action="edit" method="get">
-            <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
-            <input type="hidden" name="entry_title" value="<%= encodeURIComponent(entries[i][2]) %>">
-            <input type="hidden" name="entry_content" value="<%= encodeURIComponent(entries[i][3]) %>">
-            <input type="hidden" name="entry_score" value="<%= encodeURIComponent(entries[i][4]) %>">
-            <input type="hidden" name="entry_address" id="address">
-            <button type="submit">Edit Entry</button>
-          </form>
-          <br>
-          <% } %>
+        Date: <%= moment.unix(entries[i][1]).format('MMMM Do, YYYY h:mm:ss A') %> : Title: <%= entries[i][2] %>
+            <form action="edit" method="get">
+              <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
+              <input type="hidden" name="entry_title" value="<%= encodeURIComponent(entries[i][2]) %>">
+              <input type="hidden" name="entry_content" value="<%= encodeURIComponent(entries[i][3]) %>">
+              <input type="hidden" name="entry_score" value="<%= encodeURIComponent(entries[i][4]) %>">
+              <input type="hidden" name="entry_address" id="address">
+              <button type="submit">Edit Entry</button>
+            </form>
+            <br>
+            <% } %>
     </div>
 </body>
 <% include partials/scripts %>
