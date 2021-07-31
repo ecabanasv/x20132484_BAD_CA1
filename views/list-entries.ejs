@@ -26,13 +26,13 @@
       } -->
 
       <% for(var i=0; i < entries.length; i++) { %>
-        Date: <%= moment.unix(entries[i][1]).format('MMMM Do, YYYY h:mm:ss A') %> : Title: <%= entries[i][2] %>
-            <form action="edit" method="get">
+         <b><%= entries[i][2] %></b> (<%= moment.unix(entries[i][1]).format('MMMM Do, YYYY h:mm A') %>)
+            <form action="/edit" method="get">
               <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
               <input type="hidden" name="entry_title" value="<%= encodeURIComponent(entries[i][2]) %>">
               <input type="hidden" name="entry_content" value="<%= encodeURIComponent(entries[i][3]) %>">
               <input type="hidden" name="entry_score" value="<%= encodeURIComponent(entries[i][4]) %>">
-              <input type="hidden" name="entry_address" id="address">
+              <input type="hidden" name="currentAddress" id="address">
               <button type="submit">Edit Entry</button>
             </form>
             <br>

@@ -2,6 +2,7 @@ let express = require("express");
 let router = express.Router();
 let jwt = require("jsonwebtoken");
 let Web3 = require("web3");
+let moment = require("moment");
 let contract = require("@truffle/contract");
 
 // Provider 7545 (Ganache)
@@ -98,7 +99,6 @@ router.get("/list-entries", async (req, res, next) => {
   // Get token value if exist
   let token = req.cookies.token;
   let userName = null;
-  let moment = require('moment');
   // Empty array for user entries
   let userEntries = [];
   try {
@@ -122,15 +122,84 @@ router.get("/list-entries", async (req, res, next) => {
     console.log(err);
   }
   res.render("list-entries", {
-    page: "List of Journal entries",
+    page: "Diary entries",
     menuID: "list-entries",
     name: userName,
     entries: userEntries,
-    moment: moment
+    moment: moment,
   });
 });
 
-router.post("/list-entries", async (req, res, next) => {});
+router.get("/edit", function (req, res, next) {
+  // Get token value if exist
+  let token = req.cookies.token;
+  let userName = null;
+
+  try {
+    if (token) {
+      // Assign name & address from token
+      userName = jwt.verify(token, "JournalJWT").username;
+      userAddress = jwt.verify(token, "JournalJWT").address;
+    } else {
+      res.redirect("/logout");
+    }
+  } catch (err) {
+    console.log("error");
+    console.log(err);
+  }
+
+  res.render("edit", {
+    page: "Edit entry",
+    menuID: "edit",
+    entry_id: req.query.entry_id,
+    entry_title: req.query.entry_title,
+    entry_content: req.query.entry_content,
+    entry_score: req.query.entry_score,
+    name: userName,
+  });
+});
+
+router.post("/edit", async (req, res, next) => {
+  // Assign JWT token to token (if exist)
+  let token = req.cookies.token;
+  // Empty array for user entries
+  let userEntries = [];
+  // If token exist call function updateEntry (DiaryList.sol)
+  // And update Diary entry
+  try {
+    if (token) {
+      userName = jwt.verify(token, "JournalJWT").username;
+      userAddress = jwt.verify(token, "JournalJWT").address;
+      const diaryList = await DiaryList.deployed();
+      await diaryList.updateEntry.sendTransaction(
+        req.body.entry_id,
+        req.body.inputTitle,
+        req.body.inputContent,
+        req.body.radioScore,
+        {
+          from: userAddress,
+          gas: GAS_LIMIT,
+        }
+      );
+
+      diaryEntries = await diaryList.showListEntries.call();
+      for (let i = 0; i < diaryEntries.length; i++) {
+        if (diaryEntries[i][5].toLowerCase() == userAddress.toLowerCase()) {
+          userEntries.push(diaryEntries[i]);
+        }
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  res.render("list-entries", {
+    page: "Diary entries",
+    menuID: "list-entries",
+    name: userName,
+    entries: userEntries,
+    moment: moment,
+  });
+});
 
 // FAQ - router
 router.get("/faq", function (req, res, next) {
