@@ -1,15 +1,15 @@
-var express = require("express");
-var router = express.Router();
+let express = require("express");
+let router = express.Router();
 
 // Require userController (see it Controllers folder)
-var user_controller = require("../controllers/usersController");
+let user_controller = require("../controllers/usersController");
 
 // Login router (GET)
 router.get("/login", async function (req, res, next) {
   // Get token value if exist
-  var token = req.cookies.token;
+  let token = req.cookies.token;
   // Get name from JWT token if exist
-  var userName = null;
+  let userName = null;
   // If token exists render page with name value (login name)
   // If token doesn't exist render normal page
   if (token) {
@@ -26,9 +26,9 @@ router.post("/login", user_controller.user_login_post);
 // Signup router (GET)
 router.get("/signup", async function (req, res, next) {
   // Get token value if exist
-  var token = req.cookies.token;
+  let token = req.cookies.token;
   // Get name from JWT token if exist
-  var userName = null;
+  let userName = null;
   // If token exists render page with name value (login name)
   // If token doesn't exist render normal page
   if (token) {

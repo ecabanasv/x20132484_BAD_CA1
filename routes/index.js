@@ -1,30 +1,30 @@
-var express = require("express");
-var router = express.Router();
-var jwt = require("jsonwebtoken");
-var Web3 = require("web3");
-var contract = require("@truffle/contract");
+let express = require("express");
+let router = express.Router();
+let jwt = require("jsonwebtoken");
+let Web3 = require("web3");
+let contract = require("@truffle/contract");
 
 // Provider 7545 (Ganache)
-var provider = new Web3.providers.HttpProvider("http://localhost:7545");
+let provider = new Web3.providers.HttpProvider("http://localhost:7545");
 
 // Get diaryList contract from build folder
 const diaryListContract = require("../build/contracts/diaryList.json");
 
 // Assign diaryList to variable DiaryList
-var DiaryList = contract(diaryListContract);
+let DiaryList = contract(diaryListContract);
 
 // Set provider
 DiaryList.setProvider(provider);
 
 // Gas limit for transactions
-var GAS_LIMIT = 1000000;
+let GAS_LIMIT = 1000000;
 
 // Home - router
 router.get("/", function (req, res, next) {
   // Get token value if exist
-  var token = req.cookies.token;
+  let token = req.cookies.token;
   // Get name from JWT token if exist
-  var userName = null;
+  let userName = null;
   // If token exists render page with name value (login name)
   // If token doesn't exist render normal page
   if (token) {
@@ -47,9 +47,9 @@ router.get("/", function (req, res, next) {
 // Ad new entry - router
 router.get("/new-entry", async function (req, res, next) {
   // Get token value if exist
-  var token = req.cookies.token;
+  let token = req.cookies.token;
   // Get name from JWT token if exist
-  var userName = null;
+  let userName = null;
   // If token exists render page with name value (login name)
   // If token doesn't exist render normal page
   if (token) {
@@ -70,7 +70,7 @@ router.get("/new-entry", async function (req, res, next) {
 
 router.post("/new-entry", async (req, res, next) => {
   // Assign JWT token to token (if exist)
-  var token = req.cookies.token;
+  let token = req.cookies.token;
   // If token exist call function newEntry (DiaryList.sol)
   // And create new Diary entry
   try {
@@ -96,10 +96,10 @@ router.post("/new-entry", async (req, res, next) => {
 // List of entries - router
 router.get("/list-entries", async (req, res, next) => {
   // Get token value if exist
-  var token = req.cookies.token;
-  var userName = null;
+  let token = req.cookies.token;
+  let userName = null;
   // Empty array for user entries
-  var userEntries = [];
+  let userEntries = [];
     try {
       if (token) {
         // Assign name & address from token
@@ -133,9 +133,9 @@ router.post("/list-entries", async (req, res, next) => {});
 // FAQ - router
 router.get("/faq", function (req, res, next) {
   // Get token value if exist
-  var token = req.cookies.token;
+  let token = req.cookies.token;
   // Get name from JWT token if exist
-  var userName = null;
+  let userName = null;
   // If token exists render page with name value (login name)
   // If token doesn't exist render normal page
   if (token) {
@@ -149,9 +149,9 @@ router.get("/faq", function (req, res, next) {
 // Contact - router
 router.get("/contact", function (req, res, next) {
   // Get token value if exist
-  var token = req.cookies.token;
+  let token = req.cookies.token;
   // Get name from JWT token if exist
-  var userName = null;
+  let userName = null;
   // If token exists render page with name value (login name)
   // If token doesn't exist render normal page
   if (token) {

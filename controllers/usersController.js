@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcrypt");
-var Users = require("../models/users.model");
+let mongoose = require("mongoose");
+let jwt = require("jsonwebtoken");
+let bcrypt = require("bcrypt");
+let Users = require("../models/users.model");
 
 // Signup (POST)
 exports.user_signup_post = function (req, res, next) {
@@ -54,7 +54,7 @@ exports.user_login_post = function (req, res, next) {
         });
       } else {
         // Sign JWT token with ID, username and address for 7d days
-        var token = jwt.sign(
+        let token = jwt.sign(
           {
             _id: user._id,
             username: user.username,
