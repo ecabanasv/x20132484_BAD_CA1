@@ -69,8 +69,10 @@ router.get("/new-entry", async function (req, res, next) {
 });
 
 router.post("/new-entry", async (req, res, next) => {
-
+  // Assign JWT token to token (if exist)
   var token = req.cookies.token;
+  // If token exist call function newEntry (DiaryList.sol)
+  // And create new Diary entry
   try {
     if (token) {
       userAddress = jwt.verify(token, "JournalJWT").address;
@@ -92,23 +94,41 @@ router.post("/new-entry", async (req, res, next) => {
 });
 
 // List of entries - router
-router.get("/list-entries", function (req, res, next) {
+router.get("/list-entries", async (req, res, next) => {
   // Get token value if exist
   var token = req.cookies.token;
   var userName = null;
-  if (token) {
-    userName = jwt.verify(token, "JournalJWT").username;
+  // Empty array for user entries
+  var userEntries = [];
+    try {
+      if (token) {
+        // Assign name & address from token
+        userName = jwt.verify(token, "JournalJWT").username;
+        userAddress = jwt.verify(token, "JournalJWT").address;
+      } else {
+        res.redirect("/logout");
+      }
+
+      let diaryList = await DiaryList.deployed();
+      diaryEntries = await diaryList.showListEntries.call();
+      for (let i = 0; i < diaryEntries.length; i++) {
+        if (diaryEntries[i][5].toLowerCase() == userAddress.toLowerCase()) {
+          userEntries.push(diaryEntries[i]);
+        }
+      }
+    } catch (err) {
+      console.log("error");
+      console.log(err);
+    }
     res.render("list-entries", {
       page: "List of Journal entries",
       menuID: "list-entries",
       name: userName,
+      entries: userEntries,
     });
-  } else {
-    return res.render("index", { page: "Home", menuID: "home", name: null });
-  }
 });
 
-router.post("/list-entries", function (req, res, next) {});
+router.post("/list-entries", async (req, res, next) => {});
 
 // FAQ - router
 router.get("/faq", function (req, res, next) {

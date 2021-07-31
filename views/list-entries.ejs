@@ -14,8 +14,40 @@
       </h3>
       <br>
 
+      <!-- 
+          struct diaryEntry {
+          uint256 id;
+          uint256 date;
+          string title;
+          string content;
+          uint256 score;
+          address user_address;
+      } -->
+
+      <% for(var i=0; i < entries.length; i++) { %>
+
+        <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
+        Date: <%= entries[i][1] %>
+          <form action="edit" method="get">
+            <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
+            <input type="hidden" name="entry_title" value="<%= encodeURIComponent(entries[i][2]) %>">
+            <input type="hidden" name="entry_content" value="<%= encodeURIComponent(entries[i][3]) %>">
+            <input type="hidden" name="entry_score" value="<%= encodeURIComponent(entries[i][4]) %>">
+            <input type="hidden" name="entry_address" id="address">
+            <button type="submit">Edit Entry</button>
+          </form>
+          <br>
+          <% } %>
     </div>
 </body>
 <% include partials/scripts %>
+  <script>
+    var ethKey = null;
+    (async function () {
+      ethKey = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      console.log(ethKey);
+      document.getElementById("address").value = ethKey[0];
+    })()
+  </script>
 
 </html>
