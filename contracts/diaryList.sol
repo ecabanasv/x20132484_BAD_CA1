@@ -38,11 +38,11 @@ contract diaryList {
     }
 
     // modifier functions that is executed before rest of code
-    // it validates that score is between 1 to 10 (both included)
+    // it validates that score is between 1 to 5 (both included)
     modifier validScore(uint256 _score) {
         require(
-            _score >= 0 && _score <= 10,
-            "Not valid score. Only allow: 1-10."
+            _score >= 0 && _score <= 5,
+            "Not valid score. Only allow: 1-5."
         );
         _;
     }

@@ -1,6 +1,17 @@
 var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
+var Web3 = require("web3");
+var provider = new Web3.providers.HttpProvider("http://localhost:7545");
+var contract = require("@truffle/contract");
+
+const diaryListContract = require("../build/contracts/diaryList.json");
+
+var DiaryList = contract(diaryListContract);
+
+DiaryList.setProvider(provider);
+
+var GAS_LIMIT = 1000000;
 
 // Home - router
 router.get("/", function (req, res, next) {
@@ -18,7 +29,7 @@ router.get("/", function (req, res, next) {
     return res.render("index", {
       page: "Home",
       menuID: "home",
-      name: null
+      name: null,
     });
   }
 });
@@ -38,12 +49,33 @@ router.get("/new-entry", async function (req, res, next) {
     return res.render("index", {
       page: "Home",
       menuID: "home",
-      name: null
+      name: null,
     });
   }
 });
 
-router.post("/new-entry", function (req, res, next) {});
+router.post("/new-entry", async (req, res, next) => {
+  // await app.newEntry(inputTitle, inputContent, selectScore);
+  var token = req.cookies.token;
+  try {
+    if (token) {
+      userAddress = jwt.verify(token, "JournalJWT").address;
+      const diaryList = await DiaryList.deployed();
+      await diaryList.newEntry.sendTransaction(
+        req.body.inputTitle,
+        req.body.inputContent,
+        req.body.radioScore,
+        {
+          from: userAddress,
+          gas: GAS_LIMIT,
+        }
+      );
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  res.redirect("list-entries");
+});
 
 // List of entries - router
 router.get("/list-entries", function (req, res, next) {

@@ -20,11 +20,11 @@
     "express": "~4.16.1",
     "express-validator": "^6.12.1",
     "http-errors": "~1.6.3",
-    "js-cookie": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
     "morgan": "~1.9.1",
     "save": "^2.4.0",
+    "serve-favicon": "^2.5.0",
     "web3": "^1.4.0"
   },
   "devDependencies": {
