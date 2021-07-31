@@ -3,8 +3,11 @@ pragma solidity >=0.4.22 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 contract diaryList {
+
+    // Counter for Diary entries
     uint256 private entryCounter = 0;
 
+    // Struct for Diary
     struct diaryEntry {
         uint256 id;
         uint256 date;
@@ -14,8 +17,10 @@ contract diaryList {
         address user_address;
     }
 
+    // Map of Diary entries
     mapping(uint256 => diaryEntry) public diaryEntries;
 
+    // Event when Diary entry is created
     event entryCreated(
         uint256 id,
         uint256 date,
@@ -47,6 +52,7 @@ contract diaryList {
         _;
     }
 
+    // newEntry: Functions that create new entry in Diary
     function newEntry(
         string memory _title,
         string memory _content,
@@ -70,6 +76,7 @@ contract diaryList {
         );
     }
 
+    // ShowListEntries: Functions that show all Diary entries
     function showListEntries() public view returns (diaryEntry[] memory) {
         diaryEntry[] memory _entries = new diaryEntry[](entryCounter);
         for (uint256 i = 0; i < entryCounter; i++) {
@@ -78,6 +85,7 @@ contract diaryList {
         return _entries;
     }
 
+    // UpdateEntry: Functions that updates specific Entries from Diary)
     function updateEntry(
         uint256 _id,
         string memory _title,
