@@ -2,21 +2,31 @@ var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
 var Web3 = require("web3");
-var provider = new Web3.providers.HttpProvider("http://localhost:7545");
 var contract = require("@truffle/contract");
 
+// Provider 7545 (Ganache)
+var provider = new Web3.providers.HttpProvider("http://localhost:7545");
+
+// Get diaryList contract from build folder
 const diaryListContract = require("../build/contracts/diaryList.json");
 
+// Assign diaryList to variable DiaryList
 var DiaryList = contract(diaryListContract);
 
+// Set provider
 DiaryList.setProvider(provider);
 
+// Gas limit for transactions
 var GAS_LIMIT = 1000000;
 
 // Home - router
 router.get("/", function (req, res, next) {
+  // Get token value if exist
   var token = req.cookies.token;
+  // Get name from JWT token if exist
   var userName = null;
+  // If token exists render page with name value (login name)
+  // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("index", {
@@ -36,8 +46,12 @@ router.get("/", function (req, res, next) {
 
 // Ad new entry - router
 router.get("/new-entry", async function (req, res, next) {
+  // Get token value if exist
   var token = req.cookies.token;
+  // Get name from JWT token if exist
   var userName = null;
+  // If token exists render page with name value (login name)
+  // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("new-entry", {
@@ -55,7 +69,7 @@ router.get("/new-entry", async function (req, res, next) {
 });
 
 router.post("/new-entry", async (req, res, next) => {
-  // await app.newEntry(inputTitle, inputContent, selectScore);
+
   var token = req.cookies.token;
   try {
     if (token) {
@@ -74,11 +88,12 @@ router.post("/new-entry", async (req, res, next) => {
   } catch (err) {
     console.log(err);
   }
-  res.redirect("list-entries");
+  res.redirect("new-entry");
 });
 
 // List of entries - router
 router.get("/list-entries", function (req, res, next) {
+  // Get token value if exist
   var token = req.cookies.token;
   var userName = null;
   if (token) {
@@ -97,8 +112,12 @@ router.post("/list-entries", function (req, res, next) {});
 
 // FAQ - router
 router.get("/faq", function (req, res, next) {
+  // Get token value if exist
   var token = req.cookies.token;
+  // Get name from JWT token if exist
   var userName = null;
+  // If token exists render page with name value (login name)
+  // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("faq", { page: "FAQ", menuID: "faq", name: userName });
@@ -109,8 +128,12 @@ router.get("/faq", function (req, res, next) {
 
 // Contact - router
 router.get("/contact", function (req, res, next) {
+  // Get token value if exist
   var token = req.cookies.token;
+  // Get name from JWT token if exist
   var userName = null;
+  // If token exists render page with name value (login name)
+  // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("contact", {

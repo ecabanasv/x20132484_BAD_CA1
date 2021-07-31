@@ -1,14 +1,17 @@
 var express = require("express");
 var router = express.Router();
 
-// Require our controllers.
+// Require userController (see it Controllers folder)
 var user_controller = require("../controllers/usersController");
 
-// Login router
-
+// Login router (GET)
 router.get("/login", async function (req, res, next) {
+  // Get token value if exist
   var token = req.cookies.token;
+  // Get name from JWT token if exist
   var userName = null;
+  // If token exists render page with name value (login name)
+  // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("home", { page: "Home", menuID: "home", name: userName });
@@ -17,13 +20,17 @@ router.get("/login", async function (req, res, next) {
   }
 });
 
+// Login router (POST) - See userController in Controllers folder
 router.post("/login", user_controller.user_login_post);
 
-// Signup router
-
+// Signup router (GET)
 router.get("/signup", async function (req, res, next) {
+  // Get token value if exist
   var token = req.cookies.token;
+  // Get name from JWT token if exist
   var userName = null;
+  // If token exists render page with name value (login name)
+  // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("home", { page: "Home", menuID: "home", name: userName });
@@ -32,13 +39,13 @@ router.get("/signup", async function (req, res, next) {
   }
 });
 
+// Signup router (POST) - See userController in Controllers folder
 router.post("/signup", user_controller.user_signup_post);
 
-module.exports = router;
-
-// Logout router
-
+// Logout router (GET)
 router.get("/logout", function (req, res, next) {
   res.cookie("token", "", { maxAge: 0 });
-  res.redirect("/login");
+  res.redirect("/");
 });
+
+module.exports = router;
