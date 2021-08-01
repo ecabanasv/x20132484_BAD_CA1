@@ -91,7 +91,7 @@ router.post("/new-entry", async (req, res, next) => {
   } catch (err) {
     console.log(err);
   }
-  res.redirect("new-entry");
+  res.redirect("/list-entries");
 });
 
 // List of entries - router
@@ -101,33 +101,35 @@ router.get("/list-entries", async (req, res, next) => {
   let userName = null;
   // Empty array for user entries
   let userEntries = [];
+  console.log(token);
   try {
-    if (token) {
+    if (token === undefined) {
+      res.redirect("/logout");
+    } else {
       // Assign name & address from token
       userName = jwt.verify(token, "JournalJWT").username;
       userAddress = jwt.verify(token, "JournalJWT").address;
-    } else {
-      res.redirect("/logout");
-    }
 
-    let diaryList = await DiaryList.deployed();
-    diaryEntries = await diaryList.showListEntries.call();
-    for (let i = 0; i < diaryEntries.length; i++) {
-      if (diaryEntries[i][5].toLowerCase() == userAddress.toLowerCase()) {
-        userEntries.push(diaryEntries[i]);
+      let diaryList = await DiaryList.deployed();
+      diaryEntries = await diaryList.showListEntries.call();
+      for (let i = 0; i < diaryEntries.length; i++) {
+        if (diaryEntries[i][5].toLowerCase() == userAddress.toLowerCase()) {
+          userEntries.push(diaryEntries[i]);
+        }
       }
+      res.render("list-entries", {
+        page: "Diary entries",
+        menuID: "list-entries",
+        name: userName,
+        entries: userEntries,
+        moment: moment,
+      });
     }
   } catch (err) {
     console.log("error");
     console.log(err);
+    res.redirect("/logout");
   }
-  res.render("list-entries", {
-    page: "Diary entries",
-    menuID: "list-entries",
-    name: userName,
-    entries: userEntries,
-    moment: moment,
-  });
 });
 
 router.get("/edit", function (req, res, next) {
@@ -154,7 +156,6 @@ router.get("/edit", function (req, res, next) {
     entry_id: req.query.entry_id,
     entry_title: req.query.entry_title,
     entry_content: req.query.entry_content,
-    entry_score: req.query.entry_score,
     name: userName,
   });
 });
@@ -214,30 +215,6 @@ router.get("/faq", function (req, res, next) {
     res.render("faq", { page: "FAQ", menuID: "faq", name: userName });
   } else {
     return res.render("faq", { page: "FAQ", menuID: "faq", name: null });
-  }
-});
-
-// Contact - router
-router.get("/contact", function (req, res, next) {
-  // Get token value if exist
-  let token = req.cookies.token;
-  // Get name from JWT token if exist
-  let userName = null;
-  // If token exists render page with name value (login name)
-  // If token doesn't exist render normal page
-  if (token) {
-    userName = jwt.verify(token, "JournalJWT").username;
-    res.render("contact", {
-      page: "Contact",
-      menuID: "contact",
-      name: userName,
-    });
-  } else {
-    return res.render("contact", {
-      page: "Contact",
-      menuID: "contact",
-      name: null,
-    });
   }
 });
 

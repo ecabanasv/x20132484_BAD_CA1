@@ -9,32 +9,24 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        <img src="" height="15" alt="" loading="lazy" />
-      </a>
+      <!-- <a class="navbar-brand mt-2 mt-lg-0" href="/">
+        <img class="d-none d-xl-block" src="images/diary_menu.png" height="15" alt="" loading="lazy" />
+      </a> -->
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/"><i class="bi bi-house-door"></i> Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false"><i class="bi bi-journal"></i> Diary
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/new-entry"><i class="bi bi-pencil"></i> Add new entry</a></li>
-            <li><a class="dropdown-item" href="/list-entries"><i class="bi bi-journal-text"></i> List of entries</a>
-            </li>
-          </ul>
+          <a class="nav-link" href="/"><i class="bi bi-house-door text-light"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/faq"><i class="bi bi-card-checklist"></i> FAQ</a>
+          <a class="nav-link" href="/new-entry"><i class="bi bi-pencil text-light"></i> Add Entry</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact"><i class="bi bi-envelope"></i> Contact</a>
+          <a class="nav-link" href="/list-entries"><i class="bi bi-journal-text text-light"></i> Diary entries</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq"><i class="bi bi-card-checklist text-light"></i> FAQ</a>
         </li>
       </ul>
-
       <ul class="navbar-nav me-right">
         <li class="nav-item">
           <% if (name !=null) { %>
@@ -42,11 +34,15 @@
               Logged as <%= name %> (Logout) </a>
             <% } else{ %>
               <a href="/login" class="nav-link">
-                <i class="bi bi-person-check"></i> Login</i>
+                <i class="bi bi-person-check text-info"></i> Login
               </a>
         </li>
         <li class="nav-item">
-          <a href="/signup" class="nav-link"><i class="bi bi-person-plus"></i> Sign-up</i></a>
+          
+          <a href="/signup" class="nav-link">
+            <i class="bi bi-person-plus text-warning"></i>
+             Sign-up
+          </a>
         </li>
         <% } %>
       </ul>

@@ -8,50 +8,51 @@
 <body>
   <% include partials/menu %>
     <div class="container-fluid bg-3">
-      <br>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add new entry</li>
+        </ol>
+      </nav>
       <h3 class="text-center">
         <%= page %>
       </h3>
       <br>
-      <div class="row">
-        <form class="g-3 needs-validation" action="/new-entry" method="post">
-          <div class="col-md-4 offset-md-2">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-4">
+          <form class="row g-3" action="/new-entry" method="post">
             <div class="form-group col-md-10">
               <label for="inputTitle">Define your day with a short title:</label>
-              <input type="text" class="form-control" name="inputTitle" id="inputTitle" placeholder="Title">
+              <input type="text" class="form-control" name="inputTitle" id="inputTitle" placeholder="Title"
+                minlength="10" maxlength="20" required>
             </div>
             <br>
             <div class="form-group col-md-10">
-              <label for="inputContent">Describe here how your day was:</label>
-              <textarea type="textbox" class="form-control" name="inputContent" id="inputContent" placeholder="Content..."
-                rows="4"></textarea>
+              <label for="inputContent">Shortly describe how your day was:</label>
+              <textarea type="textbox" class="form-control" name="inputContent" id="inputContent"
+                placeholder="Content..." rows="4" minlength="30" maxlength="140" required></textarea>
             </div>
             <br>
             <div class="form-group col-md-10">
               <label for="radioScore">Rate it:</label>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio1"
-                  value="1">
+                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio1" value="1" required>
                 <label class="form-check-label" for="scoreRadio1">1</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio2"
-                  value="2">
+                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio2" value="2" required>
                 <label class="form-check-label" for="scoreRadio2">2</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio3"
-                  value="3">
+                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio3" value="3" required>
                 <label class="form-check-label" for="scoreRadio3">3</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio4"
-                  value="4">
+                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio4" value="4" required>
                 <label class="form-check-label" for="scoreRadio4">4</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio5"
-                  value="5">
+                <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio5" value="5" required>
                 <label class="form-check-label" for="scoreRadio5">5</label>
               </div>
               <br>
@@ -60,10 +61,15 @@
                 <button type="submit" class="btn btn-primary">Send</button>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        <div class="col col-lg-3 d-none d-md-block">
+          <img src="images/diary.png" class="img-fluid" style="width: 200px;">
+        </div>
       </div>
+
     </div>
+    <% include partials/footer %>
 </body>
 <% include partials/scripts %>
 

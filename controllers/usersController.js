@@ -35,37 +35,37 @@ exports.user_login_post = function (req, res, next) {
       username: req.body.inputUsername,
     },
     function (err, user) {
-      if (err) {
+      if (user === null || err) {
         console.log(err);
         res.sendStatus(500);
         return;
-      }
-
-      // If user try to login with an different account that not belong to his Metamask address
-      // It will be send it to home page again
-      if (user.address != req.body.currentMetaAcc) {
-        return res.redirect("/logout");
-      }
-
-      // Compare hashed password in MongoDB with inputPassword in form
-      if (!user || !user.comparePassword(req.body.inputPassword)) {
-        return res.status(401).json({
-          message: "Authentication failed. Invalid user or password.",
-        });
       } else {
-        // Sign JWT token with ID, username and address for 7d days
-        let token = jwt.sign(
-          {
-            _id: user._id,
-            username: user.username,
-            address: user.address,
-          },
-          "JournalJWT",
-          { expiresIn: "7d" }
-        );
-        // Set cookie token with values signed in JWT
-        res.cookie("token", token, { maxAge: 1000 * 60 * 60 * 24 * 7 });
-        res.redirect("/");
+        // If user try to login with an different account that not belong to his Metamask address
+        // It will be send it to home page again
+        if (user.address != req.body.currentMetaAcc) {
+          return res.redirect("/logout");
+        }
+
+        // Compare hashed password in MongoDB with inputPassword in form
+        if (!user || !user.comparePassword(req.body.inputPassword)) {
+          return res.status(401).json({
+            message: "Authentication failed. Invalid user or password.",
+          });
+        } else {
+          // Sign JWT token with ID, username and address for 7d days
+          let token = jwt.sign(
+            {
+              _id: user._id,
+              username: user.username,
+              address: user.address,
+            },
+            "JournalJWT",
+            { expiresIn: "7d" }
+          );
+          // Set cookie token with values signed in JWT
+          res.cookie("token", token, { maxAge: 1000 * 60 * 60 * 24 * 7 });
+          res.redirect("/");
+        }
       }
     }
   );

@@ -13,11 +13,17 @@
    </div>
    <% } %>
     <div class="container-fluid bg-3 text-center">
-      <br>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+        </ol>
+      </nav>
       <h3>
         <%= page %>
       </h3>
     </div>
+    <% include partials/footer %>
 </body>
 <% include partials/scripts %>
 

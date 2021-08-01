@@ -8,7 +8,12 @@
 <body>
     <% include partials/menu %>
         <div class="container-fluid bg-3 text-center">
-            <br>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Signup</li>
+                </ol>
+              </nav>
             <h3>
                 <%= page %>
             </h3>
@@ -18,11 +23,11 @@
                     <div class="col-md-3 offset-md-5">
                         <div class="form-group col-md-8">
                             <label for="inputUsername">Username</label>
-                            <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username">
+                            <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username" minlength="4" maxlength="15" required>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputPassword">Password</label>
-                            <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password">
+                            <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password" minlength="4" maxlength="15" required>
                             <input type="hidden" name="currentMetaAcc" id="currentMetaAcc">
                         </div>
                     </div>
@@ -31,6 +36,7 @@
                 </form>
             </div>
         </div>
+        <% include partials/footer %>
 </body>
 <% include partials/scripts %>
 <script>
