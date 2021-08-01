@@ -101,7 +101,6 @@ router.get("/list-entries", async (req, res, next) => {
   let userName = null;
   // Empty array for user entries
   let userEntries = [];
-  console.log(token);
   try {
     if (token === undefined) {
       res.redirect("/logout");
