@@ -1,17 +1,62 @@
-body{
- background-color: #d5b278;
+body {
+  background-color: #d5b278;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2 {
+  color: 582915;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px #FFFFFF;
 }
 
 #footer {
   margin-top: 10px;
 }
 
+.breadcrumb {
+  margin-top: 5px;
+}
+
 .breadcrumb a {
   color: #000000;
 }
 
-.breadcrumb >.active {
-  color: #000000;
+.breadcrumb > .active {
+  font-weight: bold;
+  color: #264653;
+}
+
+#smWelcome {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card {
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 0.75rem;
+}
+
+.card-body {
+  border-radius: 0.75rem;
+  background-color: #ffeec9;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#instructions h3 {
+  font-weight: bold;
+  color: whitesmoke;
+  text-shadow: 1px 1px #000000;
+}
+
+#instructions p {
+  font-size: 20px;
+  color: black;
+  border-radius: .80rem;
+  background-color: #ffeec9;
 }
 
 .rotate-in-center {
