@@ -8,7 +8,7 @@ h2 {
   color: 582915;
   font-weight: bold;
   text-align: center;
-  text-shadow: 1px 1px #FFFFFF;
+  text-shadow: 1px 1px #ffffff;
 }
 
 #footer {
@@ -34,6 +34,12 @@ h2 {
   text-align: center;
 }
 
+#lblTitle, #lblContent, #lblScore {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
 .card {
   height: auto;
   margin-bottom: 15px;
@@ -46,6 +52,15 @@ h2 {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
+.card-title {
+  font-weight: bold;
+  text-shadow: 1px 1px #ffffff;
+}
+
+.card-subtitle {
+  font-size: 14px;
+}
+
 #instructions h3 {
   font-weight: bold;
   color: whitesmoke;
@@ -53,10 +68,12 @@ h2 {
 }
 
 #instructions p {
+  background-color: #ffeec9;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 0.6rem;
+  margin-top: 5px;
   font-size: 20px;
   color: black;
-  border-radius: .80rem;
-  background-color: #ffeec9;
 }
 
 .rotate-in-center {
