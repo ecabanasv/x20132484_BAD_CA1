@@ -1,9 +1,17 @@
+body{
+ background-color: #d5b278;
+}
+
+#footer {
+  margin-top: 10px;
+}
+
 .breadcrumb a {
-  color: black;
+  color: #000000;
 }
 
 .breadcrumb >.active {
-  color: black;
+  color: #000000;
 }
 
 .rotate-in-center {
