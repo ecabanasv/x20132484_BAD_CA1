@@ -2,31 +2,22 @@
 
 Web application that allow user to record and retrieve from local Ethereum blockchain (Ganache2). The user needs to register in order to access the main app functions (add new entry & diary list).
 
-Technologies used: 
+### Technologies used: 
 
-[ExpressJS](https://www.npmjs.com/package/express)
-
-[MongoDB](https://www.mongodb.com)
-
-[Mongoose](https://www.npmjs.com/package/mongoose)
-
-[Bootstrap](https://getbootstrap.com/)
-
-[EJS](https://ejs.co/)
-
-[Solidity](https://docs.soliditylang.org/en/v0.8.6/)
-
-[Truffle](https://www.trufflesuite.com/)
-
-[Web3](https://web3js.readthedocs.io/en/v1.4.0/)
-
-[JWT](https://jwt.io/)
-
+[ExpressJS](https://www.npmjs.com/package/express), 
+[MongoDB](https://www.mongodb.com), 
+[Mongoose](https://www.npmjs.com/package/mongoose), 
+[Bootstrap](https://getbootstrap.com/), 
+[EJS](https://ejs.co/), 
+[Solidity](https://docs.soliditylang.org/en/v0.8.6/), 
+[Truffle](https://www.trufflesuite.com/), 
+[Web3](https://web3js.readthedocs.io/en/v1.4.0/), 
+[JWT](https://jwt.io/), 
 [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ...
 
-Restrictions: 
+### Restrictions: 
 
 User cannot register same username & Metamask account.
 
