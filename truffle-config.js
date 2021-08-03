@@ -18,7 +18,7 @@
  *
  */
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = "elder book vintage exit lonely remain main witness toast biology humor punch";
+const mnemonic = process.env.METAMASK_MNEMONIC;
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
@@ -50,7 +50,7 @@ module.exports = {
       },
      rinkeby: {
       provider: function() { 
-       return new HDWalletProvider(mnemonic, "wss://rinkeby.infura.io/ws/v3/cd64641c2f8646f39ccd413218087a81");
+       return new HDWalletProvider(mnemonic, process.env.INFURA_RINKEBY);
       },
       network_id: 4,
       gas: 4500000,
