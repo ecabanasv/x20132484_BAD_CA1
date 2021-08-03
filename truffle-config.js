@@ -1,3 +1,4 @@
+require("dotenv").config();
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -19,6 +20,7 @@
  */
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const mnemonic = process.env.METAMASK_MNEMONIC;
+const infura_key = process.env.INFURA_RINKEBY;
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
@@ -50,7 +52,7 @@ module.exports = {
       },
      rinkeby: {
       provider: function() { 
-       return new HDWalletProvider(mnemonic, process.env.INFURA_RINKEBY);
+       return new HDWalletProvider(mnemonic, infura_key);
       },
       network_id: 4,
       gas: 4500000,
