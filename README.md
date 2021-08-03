@@ -4,16 +4,16 @@ Web application that allow user to record and retrieve from local Ethereum block
 
 Technologies used: 
 
-    - ExpressJS [https://www.npmjs.com/package/express]
-    - MongoDB [https://www.mongodb.com]
-    - Mongoose [https://www.npmjs.com/package/mongoose]
-    - Bootstrap [https://getbootstrap.com/]
-    - EJS [https://ejs.co/]
-    - Solidity [https://docs.soliditylang.org/en/v0.8.6/]
-    - Truffle [https://www.trufflesuite.com/]
-    - Web3 [https://web3js.readthedocs.io/en/v1.4.0/]
-    - JWT [https://jwt.io/]
-    - bcrypt [https://www.npmjs.com/package/bcrypt]
+    - [ExpressJS](https://www.npmjs.com/package/express)
+    - [MongoDB](https://www.mongodb.com)
+    - [Mongoose](https://www.npmjs.com/package/mongoose)
+    - [Bootstrap](https://getbootstrap.com/)
+    - [EJS] (https://ejs.co/)
+    - [Solidity](https://docs.soliditylang.org/en/v0.8.6/)
+    - [Truffle](https://www.trufflesuite.com/)
+    - [Web3](https://web3js.readthedocs.io/en/v1.4.0/)
+    - [JWT](https://jwt.io/)
+    - [bcrypt](https://www.npmjs.com/package/bcrypt)
     ...
 
 Restrictions: 
@@ -57,7 +57,7 @@ Restrictions:
 
 ## Installation
 
-Install [Ganache](https://www.trufflesuite.com/ganache) and [Metamask](https://metamask.io/). Follow the [instructions](https://www.trufflesuite.com/docs/truffle/getting-started/truffle-with-metamask) (section "Setting up MetaMask") for link Ganache accounts to Metamask (port 7545). 
+Install & run [Ganache](https://www.trufflesuite.com/ganache) and [Metamask](https://metamask.io/). Follow the [instructions](https://www.trufflesuite.com/docs/truffle/getting-started/truffle-with-metamask) (section "Setting up MetaMask") for link Ganache accounts to Metamask (port 7545). 
 
 ### Install dependencies
 ```bash
