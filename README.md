@@ -84,7 +84,7 @@ npm run coverage
 ```
 
 ## How to run the project
-Follow steps 1, 2 & 3 before run through one of the commands below.
+Follow steps 1 & 2 in order before run through one of the commands below.
 
 ### nodemon
 ```bash
