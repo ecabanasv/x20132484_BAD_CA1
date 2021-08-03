@@ -64,7 +64,7 @@ exports.user_login_post = function (req, res, next) {
           );
           // Set cookie token with values signed in JWT
           res.cookie("token", token, { maxAge: 1000 * 60 * 60 * 24 * 7 });
-          res.redirect("/");
+          res.redirect("/list-entries");
         }
       }
     }

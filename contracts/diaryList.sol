@@ -90,7 +90,7 @@ contract diaryList {
         string memory _title,
         string memory _content,
         uint256 _score
-    ) public {
+    ) public validScore(_score) emptyString(_title, _content) {
         diaryEntries[_id].title = _title;
         diaryEntries[_id].content = _content;
         diaryEntries[_id].score = _score;

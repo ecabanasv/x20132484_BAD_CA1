@@ -14,48 +14,46 @@
           <li class="breadcrumb-item active" aria-current="page">Diary entries</li>
         </ol>
       </nav>
-      <h3>
-        <%= page %> of <%= name %> 
-      </h3>
-      <h6>(<a href="/new-entry">Add new entry</a>)</h6>
+      <div class="d-flex justify-content-center">
+        <h2>
+          <%= page %> (<%= name %>)
+        </h2>
+      </div>
+      <div class="d-flex justify-content-center">
+        <h5>
+          <a class="btn btn-outline-light" href="/new-entry" role="button">Add new entry</a>
+        </h5>
+      </div>
       <br>
       <div class="container-fluid bg-3">
         <div class="row d-flex justify-content-center">
           <% for(var i=0; i < entries.length; i++) { %>
             <div class="col-sm-4">
-              <div class="card puff-in-center bg-light"
-                style="height: auto; margin-bottom: 15px; border-radius: .75rem;">
+              <div class="card puff-in-center bg-light">
                 <div class="card-body">
                   <h5 class="card-title">
-                    <b>
-                      <%= entries[i][2] %>
-                    </b>
+                    <%= entries[i][2] %>
                   </h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     <i>
-                      <%= moment.unix(entries[i][1]).format('DD/MM/YYYY h:mm A') %>
+                      <%= moment.unix(entries[i][1]).format('DD/MM/YYYY h:mm A') %> - Rate: <%= entries[i][4] %>/5
                     </i>
                   </h6>
                   <p class="card-text">
                     <%= entries[i][3] %>
                   </p>
-                  <p class="card-text">
-                    <b>Rate:</b>
-                    <%= entries[i][4] %>
-                  </p>
-
+                  <form action="/edit" method="get">
+                    <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
+                    <input type="hidden" name="entry_title" value="<%= encodeURIComponent(entries[i][2]) %>">
+                    <input type="hidden" name="entry_content" value="<%= encodeURIComponent(entries[i][3]) %>">
+                    <input type="hidden" name="entry_score" value="<%= encodeURIComponent(entries[i][4]) %>">
+                    <input type="hidden" name="currentMetaAcc" id="currentMetaAcc">
+                    <div class="d-flex justify-content-center">
+                      <button class="btn btn-outline-secondary btn-sm" style="margin-bottom: 5px;" type="submit"><i
+                          class="bi bi-pencil"></i></button>
+                    </div>
+                  </form>
                 </div>
-                <form action="/edit" method="get">
-                  <input type="hidden" name="entry_id" value="<%= entries[i][0] %>">
-                  <input type="hidden" name="entry_title" value="<%= encodeURIComponent(entries[i][2]) %>">
-                  <input type="hidden" name="entry_content" value="<%= encodeURIComponent(entries[i][3]) %>">
-                  <input type="hidden" name="entry_score" value="<%= encodeURIComponent(entries[i][4]) %>">
-                  <input type="hidden" name="currentAddress" id="address">
-                  <div class="d-flex justify-content-center">
-                    <button class="btn btn-secondary btn-sm" type="submit">Edit</button>
-                  </div>
-                  <br>
-                </form>
               </div>
             </div>
             <% } %>
@@ -68,10 +66,14 @@
   <script>
     var ethKey = null;
     (async function () {
-      ethKey = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      console.log(ethKey);
-      document.getElementById("address").value = ethKey[0];
+      ethKey = await window.ethereum.request({ method: 'eth_requestAccounts' })
+      let metaAcc = (await document.getElementById("currentMetaAcc"))
+      metaAcc.value = ethKey[0]
     })()
+
+    window.ethereum.on('accountsChanged', function (accounts) {
+      window.location = "/logout";
+    })
   </script>
 
 </html>

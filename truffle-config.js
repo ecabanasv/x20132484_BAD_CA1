@@ -17,7 +17,8 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+const mnemonic = "elder book vintage exit lonely remain main witness toast biology humor punch";
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
@@ -46,7 +47,17 @@ module.exports = {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 7545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
-     }
+      },
+     rinkeby: {
+      provider: function() { 
+       return new HDWalletProvider(mnemonic, "wss://rinkeby.infura.io/ws/v3/cd64641c2f8646f39ccd413218087a81");
+      },
+      network_id: 4,
+      gas: 4500000,
+      gasPrice: 10000000000,
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200
+  }
      
     // Another network with more advanced options...
     // advanced: {

@@ -15,15 +15,15 @@
           <li class="breadcrumb-item active" aria-current="page">Edit entry</li>
         </ol>
       </nav>
-      <h3 class="text-center">
+      <h2 class="text-center">
         <%= page %>
-      </h3>
+      </h2>
       <br>
       <div class="row justify-content-md-center">
         <div class="col col-lg-4">
           <form class="row g-3" action="/edit" method="post">
             <div class="form-group col-md-10">
-              <label for="inputTitle">Define your day with a short title:</label>
+              <label id="lblTitle" for="inputTitle">Define your day with a short title:</label>
               <input type="text" class="form-control" name="inputTitle" id="inputTitle" placeholder="Title"
                 minlength="10" maxlength="20" value="<%= decodeURIComponent(entry_title) %>" required>
               <input id="address" type="hidden" name="currentAddress">
@@ -31,14 +31,14 @@
             </div>
             <br>
             <div class="form-group col-md-10">
-              <label for="inputContent">Shortly describe how your day was:</label>
+              <label id="lblContent" for="inputContent">Shortly describe how your day was:</label>
               <textarea type="textbox" class="form-control" name="inputContent" id="inputContent"
                 placeholder="Content..." rows="4" minlength="23" maxlength="140"
                 required><%= decodeURIComponent(entry_content) %></textarea>
             </div>
             <br>
             <div class="form-group col-md-10">
-              <label for="radioScore">Rate it:</label>
+              <label id="lblScore" for="radioScore">Rate it:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="radioScore" id="scoreRadio1" value="1" required>
                 <label class="form-check-label" for="scoreRadio1">1</label>
@@ -62,13 +62,13 @@
               <br>
               <br>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary">Send</button>
+                <button type="submit" class="btn btn-secondary btn-sm">Send</button>
               </div>
             </div>
           </form>
         </div>
         <div class="col col-lg-3 d-none d-md-block">
-          <img src="images/diary.png" class="img-fluid" style="width: 200px;">
+          <img src="images/diary.png" class="img-fluid" style="width: 220px;">
         </div>
       </div>
 
@@ -76,5 +76,10 @@
     <% include partials/footer %>
 </body>
 <% include partials/scripts %>
+<script>
+  window.ethereum.on('accountsChanged', function (accounts) {
+    window.location = "/logout";
+  })
+</script>
 
 </html>

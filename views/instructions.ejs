@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/header %>
+</head>
+
+<body>
+  <% include partials/menu %>
+    <% if (name===null) { %>
+      <div class="alert alert-primary text-center"
+        style="padding: 0; margin-bottom: 0px; border-bottom: 1px solid black;" role="alert">
+        To have full access to the functions of the diary. Please, <a href="/signup">register</a> and <a
+          href="/login">login</a> with your username/password.
+      </div>
+      <% } %>
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Instructions</li>
+            </ol>
+          </nav>
+          <h2>
+            <%= page %>
+          </h2>
+          <div id="instructions" class="d-flex justify-content-center">
+            <div class="row col-10">
+              <h3>Metamask</h3>
+              <p>It is necessary to have a Metamask account to be able to register on this website. Download the
+                Metamask extension corresponding to your browser through the web <a class="link-dark"
+                  href="https://metamask.io/" target="_blank">https://metamask.io/</a>.</p>
+
+              <h3>Ganache</h3>
+
+              <p>If the application is going to be deployed in a local network, it is necessary to use Ganache (port
+                7545) to recreate the local Blockchain accounts associated with the Metamask account. From this link <a
+                  class="link-dark"
+                  href="https://www.trufflesuite.com/ganache" target="_blank">https://www.trufflesuite.com/ganache</a>; you can download
+                the application corresponding to your OS. Once downloaded, associate one of the 10 Ganache accounts to
+                your Metamask account (<a class="link-dark" href="https://www.trufflesuite.com/docs/truffle/getting-started/truffle-with-metamask" target="_blank">more info</a> in "Setting up MetaMask" section).</p>
+
+              <h3>Register</h3>
+
+              <p>To use the functions of the web application it is necessary to register as a web user through <a
+                  href="/signup" class="link-dark">signup</a> form. (You must be sure that your Metamask account is connected).</p>
+
+
+              <h3>Login</h3>
+
+              <p>Once registered as a user, you must log in through the <a href="/login" class="link-dark">login</a>
+                form (You must be sure that your Metamask account is connected).</p>
+            </div>
+          </div>
+          <br><br>
+          <% include partials/footer %>
+</body>
+<% include partials/scripts %>
+<script>
+  window.ethereum.on('accountsChanged', function (accounts) {
+    window.location = "/logout";
+  })
+</script>
+
+</html>

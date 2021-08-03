@@ -1,5 +1,6 @@
 let express = require("express");
 let router = express.Router();
+let jwt = require("jsonwebtoken");
 
 // Require userController (see it Controllers folder)
 let user_controller = require("../controllers/usersController");
@@ -14,7 +15,7 @@ router.get("/login", async function (req, res, next) {
   // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("home", { page: "Home", menuID: "home", name: userName });
+    res.render("index", { page: "Home", menuID: "home", name: userName });
   } else {
     return res.render("login", { page: "Login", menuID: "login", name: null });
   }

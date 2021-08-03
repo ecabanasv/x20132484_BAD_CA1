@@ -8,22 +8,24 @@
 <body>
   <% include partials/menu %>
     <% if (name===null) { %>
-      <div class="alert alert-primary text-center" style="padding: 0;" role="alert">
+      <div class="alert alert-primary text-center" style="padding: 0; margin-bottom: 0px; border-bottom: 1px solid black;" role="alert">
         To have full access to the functions of the diary. Please, <a href="/signup">register</a> and <a
           href="/login">login</a> with your username/password.
       </div>
       <% } %>
-        <div class="container-fluid bg-3">
-          <br>
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Fluid jumbotron</h1>
-              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-            </div>
-          </div>
+        <div class="container-fluid" style="padding: 0;">
+          <!-- <h2>Welcome to Rinkeby Diary</h2> -->
+          <h2 id="smWelcome" class="d-block d-sm-none" style="margin: 20px; padding: 20px;">Welcome to Rinkeby Diary</h2>
+          <img class="img-fluid d-none d-sm-block bg-img" src="images/wallpaper.jpg" alt="Background">
         </div>
         <% include partials/footer %>
 </body>
 <% include partials/scripts %>
+
+<script>
+  window.ethereum.on('accountsChanged', function (accounts) {
+    window.location = "/logout";
+  })
+</script>
 
 </html>

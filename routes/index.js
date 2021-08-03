@@ -98,7 +98,6 @@ router.post("/new-entry", async (req, res, next) => {
 router.get("/list-entries", async (req, res, next) => {
   // Get token value if exist
   let token = req.cookies.token;
-  let userName = null;
   // Empty array for user entries
   let userEntries = [];
   try {
@@ -106,8 +105,10 @@ router.get("/list-entries", async (req, res, next) => {
       res.redirect("/logout");
     } else {
       // Assign name & address from token
-      userName = jwt.verify(token, "JournalJWT").username;
-      userAddress = jwt.verify(token, "JournalJWT").address;
+      let userName = jwt.verify(token, "JournalJWT").username;
+      let userAddress = jwt.verify(token, "JournalJWT").address;
+
+      console.log("userAddress: " + userAddress);
 
       let diaryList = await DiaryList.deployed();
       diaryEntries = await diaryList.showListEntries.call();
@@ -116,6 +117,10 @@ router.get("/list-entries", async (req, res, next) => {
           userEntries.push(diaryEntries[i]);
         }
       }
+
+      // Reverse order in array (Show latest items first)
+      userEntries.reverse();
+
       res.render("list-entries", {
         page: "Diary entries",
         menuID: "list-entries",
@@ -192,6 +197,10 @@ router.post("/edit", async (req, res, next) => {
   } catch (err) {
     console.log(err);
   }
+
+  // Reverse order in array (Show latest items first)
+  userEntries.reverse();
+
   res.render("list-entries", {
     page: "Diary entries",
     menuID: "list-entries",
@@ -202,7 +211,7 @@ router.post("/edit", async (req, res, next) => {
 });
 
 // FAQ - router
-router.get("/faq", function (req, res, next) {
+router.get("/instructions", function (req, res, next) {
   // Get token value if exist
   let token = req.cookies.token;
   // Get name from JWT token if exist
@@ -211,9 +220,17 @@ router.get("/faq", function (req, res, next) {
   // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("faq", { page: "FAQ", menuID: "faq", name: userName });
+    res.render("instructions", {
+      page: "Instructions",
+      menuID: "instructions",
+      name: userName,
+    });
   } else {
-    return res.render("faq", { page: "FAQ", menuID: "faq", name: null });
+    return res.render("instructions", {
+      page: "Instructions",
+      menuID: "instructions",
+      name: null,
+    });
   }
 });
 
