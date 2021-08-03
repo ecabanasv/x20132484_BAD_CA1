@@ -1,5 +1,5 @@
 # Ganache Diary (x20132484)
-Web application that allow user to record and retrieve from local Ethereum blockchain (Ganache2). The user needs to register in order to access the main app functions (add new entry & diary list).
+Web application that allow user to record and retrieve from local Ethereum blockchain (Ganache). The user needs to register in order to access the main app functions (add new entry & diary list).
 
 ### Technologies used: 
 
@@ -84,7 +84,7 @@ npm run coverage
 ```
 
 ## How to run the project
-Follow steps 1 & 2 in order before run through one of the commands below.
+Follow steps 1 & 2 in order before run through one of the commands below. Don't forge to run Ganache client & link accounts to Metamask (see installation notes).
 
 ### nodemon
 ```bash
