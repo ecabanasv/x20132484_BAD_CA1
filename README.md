@@ -1,8 +1,7 @@
 # Ganache Diary (x20132484)
 Web application that allow user to record and retrieve from local Ethereum blockchain (Ganache). The user needs to register in order to access the main app functions (add new entry & diary list).
 
-### Technologies used: 
-
+### Technologies & libraries: 
 [ExpressJS](https://www.npmjs.com/package/express), 
 [MongoDB](https://www.mongodb.com), 
 [Mongoose](https://www.npmjs.com/package/mongoose), 
@@ -12,9 +11,7 @@ Web application that allow user to record and retrieve from local Ethereum block
 [Truffle](https://www.trufflesuite.com/), 
 [Web3](https://web3js.readthedocs.io/en/v1.4.0/), 
 [JWT](https://jwt.io/), 
-[Bcrypt](https://www.npmjs.com/package/bcrypt)
-
-...
+[Bcrypt](https://www.npmjs.com/package/bcrypt)...
 
 ### Restrictions: 
 User cannot register same username & Metamask account.
@@ -27,9 +24,7 @@ All form fields are validated through browser and they cannot be empty.
 
 
 ## Project dependencies
-
 ### Dependencies
-
 ```json
     "@truffle/contract": "^4.3.26",
     "bcrypt": "^5.0.1",
@@ -45,7 +40,6 @@ All form fields are validated through browser and they cannot be empty.
 ```
 
 ### Development / Testing
-
 ```json
     "chai": "^4.3.4",
     "eth-gas-reporter": "^0.2.22",
@@ -84,7 +78,7 @@ npm run coverage
 ```
 
 ## How to run the project
-Follow steps 1 & 2 in order before run through one of the commands below. Don't forge to run Ganache client & link accounts to Metamask (see installation notes).
+Follow steps 1 & 2 before run through one of the commands below. Make sure you're running the Ganache client & you linked the account(s) to Metamask (see installation notes).
 
 ### nodemon
 ```bash
