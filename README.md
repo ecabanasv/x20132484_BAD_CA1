@@ -1,5 +1,19 @@
 # Ganache Diary (x20132484)
 
+Web application that allow user to record entries into a local Ethereum blockchain. User needs to register in order to access main app functions (add new entry & diary list).
+
+Technologies used: 
+
+    - ExpressJS
+    - MongoDB
+    - Mongoose
+    - Bootstrap
+    - EJS
+    - Solidity
+    - Truffle
+    - Web3
+    - JWT
+
 ## Project dependencies
 
 ### Dependencies
