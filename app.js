@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // MongoDB connection to MongoDB Atlas
 
 mongoose
-  .connect(process.env.MONGODB_ATLAS_URI, {
+  .connect("mongodb+srv://admin:x20132484@db.pbgoy.mongodb.net/DB?retryWrites=true&w=majority", {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
