@@ -1,6 +1,5 @@
 build
 node_modules
-coverage
 npm-debug.log
 .env
-coverage.json
+
