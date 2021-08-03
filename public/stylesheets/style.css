@@ -8,7 +8,7 @@ h2 {
   color: 582915;
   font-weight: bold;
   text-align: center;
-  text-shadow: 1px 1px #ffffff;
+  text-shadow: 1px 1px whitesmoke;
 }
 
 #footer {
@@ -61,10 +61,10 @@ h2 {
   font-size: 14px;
 }
 
-#instructions h3 {
+#instructions h4 {
   font-weight: bold;
-  color: whitesmoke;
-  text-shadow: 1px 1px #000000;
+  color: black;
+  text-shadow: 1px 1px gray;
 }
 
 #instructions p {
@@ -72,7 +72,7 @@ h2 {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   border-radius: 0.6rem;
   margin-top: 5px;
-  font-size: 20px;
+  font-size: 18px;
   color: black;
 }
 

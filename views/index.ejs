@@ -8,24 +8,30 @@
 <body>
   <% include partials/menu %>
     <% if (name===null) { %>
-      <div class="alert alert-primary text-center" style="padding: 0; margin-bottom: 0px; border-bottom: 1px solid black;" role="alert">
-        To have full access to the functions of the diary. Please, <a href="/signup">register</a> and <a
+      <div class="alert alert-warning text-center"
+        style="padding: 0; margin-bottom: 0px; border-bottom: 1px solid black;" role="alert">
+        To have full access to the functions of the diary. Please, <a class="link-dark" href="/signup">register</a> and <a class="link-dark"
           href="/login">login</a> with your username/password.
       </div>
       <% } %>
         <div class="container-fluid" style="padding: 0;">
           <!-- <h2>Welcome to Rinkeby Diary</h2> -->
-          <h2 id="smWelcome" class="d-block d-sm-none" style="margin: 20px; padding: 20px;">Welcome to Rinkeby Diary</h2>
+          <h2 id="smWelcome" class="d-block d-sm-none" style="margin: 20px; padding: 20px;">Welcome to Rinkeby Diary
+          </h2>
           <img class="img-fluid d-none d-sm-block bg-img" src="images/wallpaper.jpg" alt="Background">
         </div>
         <% include partials/footer %>
 </body>
 <% include partials/scripts %>
 
-<script>
-  window.ethereum.on('accountsChanged', function (accounts) {
-    window.location = "/logout";
-  })
-</script>
+  <script>
+    window.ethereum.on('accountsChanged', function (accounts) {
+      window.location = "/logout";
+    })
+    
+    window.ethereum.on('chainChanged', function (chainId) {
+      window.location = "/logout";
+    })
+  </script>
 
 </html>

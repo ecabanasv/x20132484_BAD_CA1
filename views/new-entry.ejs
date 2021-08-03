@@ -79,8 +79,12 @@
     })()
 
     window.ethereum.on('accountsChanged', function (accounts) {
-    window.location = "/logout";
-  })
+      window.location = "/logout";
+    })
+
+    window.ethereum.on('chainChanged', function (chainId) {
+      window.location = "/logout";
+    })
   </script>
 
 

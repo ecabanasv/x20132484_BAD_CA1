@@ -5,7 +5,7 @@ var mongoose = require("mongoose"),
 const usersSchema = new Schema({
   username: { type: String, trim: true, unique: true, required: true },
   hashed_password: { type: String, required: true },
-  address: { type: String, required: true },
+  address: { type: String, unique: true, required: true },
 });
 
 usersSchema.methods.comparePassword = function (password) {

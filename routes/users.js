@@ -34,7 +34,7 @@ router.get("/signup", async function (req, res, next) {
   // If token doesn't exist render normal page
   if (token) {
     userName = jwt.verify(token, "JournalJWT").username;
-    res.render("home", { page: "Home", menuID: "home", name: userName });
+    res.render("index", { page: "Home", menuID: "home", name: userName });
   } else {
     return res.render("signup", {
       page: "Signup",
