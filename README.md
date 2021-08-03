@@ -1,18 +1,28 @@
 # Ganache Diary (x20132484)
 
-Web application that allow user to record entries into a local Ethereum blockchain. User needs to register in order to access main app functions (add new entry & diary list).
+Web application that allow user to record and retrieve from local Ethereum blockchain (Ganache2). The user needs to register in order to access the main app functions (add new entry & diary list).
 
 Technologies used: 
 
-    - ExpressJS
-    - MongoDB
-    - Mongoose
-    - Bootstrap
-    - EJS
-    - Solidity
-    - Truffle
-    - Web3
-    - JWT
+    - ExpressJS ([https://www.npmjs.com/package/express])
+    - MongoDB ([https://www.mongodb.com])
+    - Mongoose ([https://www.npmjs.com/package/mongoose])
+    - Bootstrap ([https://getbootstrap.com/])
+    - EJS ([https://ejs.co/])
+    - Solidity ([https://docs.soliditylang.org/en/v0.8.6/])
+    - Truffle ([https://www.trufflesuite.com/])
+    - Web3 ([https://web3js.readthedocs.io/en/v1.4.0/])
+    - JWT ([https://jwt.io/])
+    - bcrypt ([https://www.npmjs.com/package/bcrypt])
+    ...
+
+Restrictions: 
+
+    - User cannot register same username & Metamask account.
+    - If user change Metamask account or network during use it will be disconnected and redirected to homepage.
+    - Entries: Title (10-20 char), Content (30-140 char) & Rate (1-5).
+    - All form fields are validated through browser and they cannot be empty.
+
 
 ## Project dependencies
 
