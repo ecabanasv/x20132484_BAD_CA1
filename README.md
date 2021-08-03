@@ -4,16 +4,16 @@ Web application that allow user to record and retrieve from local Ethereum block
 
 Technologies used: 
 
-    - ExpressJS ([https://www.npmjs.com/package/express])
-    - MongoDB ([https://www.mongodb.com])
-    - Mongoose ([https://www.npmjs.com/package/mongoose])
-    - Bootstrap ([https://getbootstrap.com/])
-    - EJS ([https://ejs.co/])
-    - Solidity ([https://docs.soliditylang.org/en/v0.8.6/])
-    - Truffle ([https://www.trufflesuite.com/])
-    - Web3 ([https://web3js.readthedocs.io/en/v1.4.0/])
-    - JWT ([https://jwt.io/])
-    - bcrypt ([https://www.npmjs.com/package/bcrypt])
+    - ExpressJS [https://www.npmjs.com/package/express]
+    - MongoDB [https://www.mongodb.com]
+    - Mongoose [https://www.npmjs.com/package/mongoose]
+    - Bootstrap [https://getbootstrap.com/]
+    - EJS [https://ejs.co/]
+    - Solidity [https://docs.soliditylang.org/en/v0.8.6/]
+    - Truffle [https://www.trufflesuite.com/]
+    - Web3 [https://web3js.readthedocs.io/en/v1.4.0/]
+    - JWT [https://jwt.io/]
+    - bcrypt [https://www.npmjs.com/package/bcrypt]
     ...
 
 Restrictions: 
