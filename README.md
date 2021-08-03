@@ -1,5 +1,4 @@
 # Ganache Diary (x20132484)
-
 Web application that allow user to record and retrieve from local Ethereum blockchain (Ganache2). The user needs to register in order to access the main app functions (add new entry & diary list).
 
 ### Technologies used: 
@@ -18,7 +17,6 @@ Web application that allow user to record and retrieve from local Ethereum block
 ...
 
 ### Restrictions: 
-
 User cannot register same username & Metamask account.
 
 If user change Metamask account or network during use it will be disconnected and redirected to homepage.
@@ -60,28 +58,25 @@ All form fields are validated through browser and they cannot be empty.
 ```
 
 ## Installation
-
 Install & run [Ganache](https://www.trufflesuite.com/ganache) and [Metamask](https://metamask.io/). Follow the [instructions](https://www.trufflesuite.com/docs/truffle/getting-started/truffle-with-metamask) (section "Setting up MetaMask") for link Ganache accounts to Metamask (port 7545). 
 
-### Install dependencies
+### 1) Install dependencies
 ```bash
 npm install
 ```
 
-### Truffle commands: compile & migrate to dev network
+### 2) Truffle commands: compile & migrate to dev network
 ```bash
 npx truffle compile
 npx truffle migrate --network development
 ```
 
-### Test data commands
-
+### 3) Test data commands (optional)
 ```bash
 see testdata.txt (root)
 ```
 
-### Testing commands
-
+### 4) Testing commands (optional)
 ```bash
 npm run slint
 npm run test
@@ -89,7 +84,7 @@ npm run coverage
 ```
 
 ## How to run the project
-
+Follow steps 1, 2 & 3 before run through one of the commands below.
 
 ### nodemon
 ```bash
