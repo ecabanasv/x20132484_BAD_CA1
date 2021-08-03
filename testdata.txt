@@ -1,0 +1,32 @@
+# Step 1
+
+npx truffle console --network development
+
+# Step 2
+
+let app = await diaryList.deployed()
+
+# Step 3: Copy & paste all brick below in the command line & press enter.
+
+await app.newEntry("Hello World 1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 1, {from: accounts[0]});
+await app.newEntry("Hello World 2", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 2, {from: accounts[0]});
+await app.newEntry("Hello World 3", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 3, {from: accounts[0]});
+await app.newEntry("Hello World 4", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 4, {from: accounts[0]});
+await app.newEntry("Hello World 5", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 5, {from: accounts[0]});
+await app.newEntry("Hello World 6", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 1, {from: accounts[0]});
+await app.newEntry("Hello World 7", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 2, {from: accounts[0]});
+await app.newEntry("Hello World 8", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 3, {from: accounts[0]});
+await app.newEntry("Hello World 9", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 4, {from: accounts[0]});
+await app.newEntry("Hello World 6", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 1, {from: accounts[1]});
+await app.newEntry("Hello World 7", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 2, {from: accounts[1]});
+await app.newEntry("Hello World 8", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 3, {from: accounts[1]});
+await app.newEntry("Hello World 9", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 4, {from: accounts[1]});
+await app.newEntry("Hello World 10", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 5, {from: accounts[1]});
+await app.newEntry("Hello World 11", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 1, {from: accounts[1]});
+await app.newEntry("Hello World 12", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 2, {from: accounts[1]});
+await app.newEntry("Hello World 13", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 3, {from: accounts[1]});
+await app.newEntry("Hello World 14", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et consectetur, sed pulvinar felis. Suspendisse ac nibh fringilla, tristique.", 4, {from: accounts[1]})
+
+# Important
+
+Link account[0] & account[1] of your Ganache client with your Metamask account (port 7545)
