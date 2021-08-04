@@ -3,18 +3,21 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+/* div when index page is minimized */
 .smWelcome {
   margin: 20px;
   padding: 20px;
   text-align: center;
 }
 
+/* index h2 when page is minimized */
 .h2Index {
   margin-bottom: 20px;
   color: black;
   text-shadow: 1px 1px 3px whitesmoke;
 }
 
+/* main h titles of pages */
 .hTitle {
   color: #ffeec9;
   font-weight: bold;
@@ -23,18 +26,21 @@ body {
   text-shadow: 1px 1px 3px black;
 }
 
+/* button when index page is minimized */
 .btnAddEntry {
   text-align: center;
 }
 
+/* css for list of entries */
 #listEntries {
   margin: 0px 10px 0px 10px;
 }
 
+/* css footer */
 #footer {
   margin-top: 10px;
 }
-
+/* breadcrumb */
 .breadcrumb {
   margin-top: 5px;
 }
@@ -48,6 +54,7 @@ body {
   color: #264653;
 }
 
+/* form labels */
 #lblTitle,
 #lblContent,
 #lblScore {
@@ -56,6 +63,7 @@ body {
   margin-bottom: 5px;
 }
 
+/* entrie card */
 .card {
   height: auto;
   margin-bottom: 15px;
@@ -77,12 +85,14 @@ body {
   font-size: 14px;
 }
 
+/* instruction page: h4 title */
 #instructions h4 {
   font-weight: bold;
   color: black;
   text-shadow: 1px 1px 3px whitesmoke;
 }
 
+/* instruction page: paragraph */
 #instructions p {
   background-color: #ffeec9;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -92,37 +102,7 @@ body {
   color: black;
 }
 
-.rotate-in-center {
-  -webkit-animation: rotate-in-center 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
-  animation: rotate-in-center 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@-webkit-keyframes rotate-in-center {
-  0% {
-    -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-    opacity: 1;
-  }
-}
-@keyframes rotate-in-center {
-  0% {
-    -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-    opacity: 1;
-  }
-}
-
+/* START: CSS Class generated from animista.net */
 .puff-in-center {
   -webkit-animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
     both;
@@ -161,3 +141,4 @@ body {
     opacity: 1;
   }
 }
+/* END: CSS Class generated from animista.net */
