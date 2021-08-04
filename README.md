@@ -40,7 +40,9 @@ All form fields are validated through browser and they cannot be empty.
 ```
 
 ## Installation
-Install & run [Ganache](https://www.trufflesuite.com/ganache) and [Metamask](https://metamask.io/). Follow the [instructions](https://www.trufflesuite.com/docs/truffle/getting-started/truffle-with-metamask) (section "Setting up MetaMask") for link Ganache accounts to Metamask (port 7545). 
+Install & run [Ganache](https://www.trufflesuite.com/ganache) and [Metamask](https://metamask.io/). Follow the [instructions](https://www.trufflesuite.com/docs/truffle/getting-started/truffle-with-metamask) (section "Setting up MetaMask") for link Ganache accounts to Metamask (port 7545)
+
+Unzip file x20132484-BAD-CA. Go into the folder unzipped and open a new terminal. Then, run commands below:
 
 ### 1) Install dependencies
 ```bash
@@ -66,7 +68,7 @@ npm run coverage
 ```
 
 ## How to run the project
-Follow steps 1 & 2 before run through one of the commands below. Make sure you're running the Ganache client & you linked the account(s) to Metamask (see installation notes).
+Follow steps 1 & 2 before run through one of the two commands below. Make sure you're running the Ganache client & you linked the account(s) to Metamask (see installation notes).
 
 ### nodemon
 ```bash
