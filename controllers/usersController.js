@@ -44,7 +44,7 @@ exports.user_login_post = function (req, res, next) {
           page: "Login",
           menuID: "login",
           name: null,
-          error: "Invalid username or password",
+          error: "Invalid username",
         });
         return;
       } else {
@@ -56,8 +56,11 @@ exports.user_login_post = function (req, res, next) {
 
         // Compare hashed password in MongoDB with inputPassword in form
         if (!user || !user.comparePassword(req.body.inputPassword)) {
-          return res.status(401).json({
-            message: "Authentication failed. Invalid user or password.",
+          return res.render("login", {
+            page: "Login",
+            menuID: "login",
+            name: null,
+            error: "Invalid password",
           });
         } else {
           // Sign JWT token with ID, username and address for 7d days
