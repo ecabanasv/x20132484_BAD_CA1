@@ -37,7 +37,7 @@ router.get("/signup", async function (req, res, next) {
     res.render("index", { page: "Home", menuID: "home", name: userName });
   } else {
     return res.render("signup", {
-      page: "Signup",
+      page: "Sign-up",
       menuID: "signup",
       name: null,
       error: null

@@ -29,13 +29,14 @@
         <form action="/login" method="post">
           <div class="col-md-3 offset-md-5">
             <div class="form-group col-md-8">
-              <label for="inputUsername">Username</label>
-              <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Username"
+              <label class="lblInput" for="inputUsername">Username</label>
+              <input type="text" class="inputField form-control" name="inputUsername" id="inputUsername" placeholder="Username"
                 minlength="4" maxlength="15" required>
+                <br>
             </div>
             <div class="form-group col-md-8">
-              <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password"
+              <label class="lblInput" for="inputPassword">Password</label>
+              <input type="password" class="inputField form-control" name="inputPassword" id="inputPassword" placeholder="Password"
                 minlength="4" maxlength="15" required>
               <input type="hidden" name="currentMetaAcc" id="currentMetaAcc">
             </div>

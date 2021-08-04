@@ -108,8 +108,6 @@ router.get("/list-entries", async (req, res, next) => {
       let userName = jwt.verify(token, "JournalJWT").username;
       let userAddress = jwt.verify(token, "JournalJWT").address;
 
-      console.log("userAddress: " + userAddress);
-
       let diaryList = await DiaryList.deployed();
       diaryEntries = await diaryList.showListEntries.call();
       for (let i = 0; i < diaryEntries.length; i++) {
@@ -150,7 +148,6 @@ router.get("/edit", function (req, res, next) {
       res.redirect("/logout");
     }
   } catch (err) {
-    console.log("error");
     console.log(err);
   }
 

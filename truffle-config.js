@@ -49,17 +49,18 @@ module.exports = {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 7545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
-      },
-     rinkeby: {
-      provider: function() { 
-       return new HDWalletProvider(mnemonic, infura_key);
-      },
-      network_id: 4,
-      gas: 4500000,
-      gasPrice: 10000000000,
-      networkCheckTimeout: 1000000,
-      timeoutBlocks: 200
-  }
+      }
+// ,
+//      rinkeby: {
+//       provider: function() { 
+//        return new HDWalletProvider(mnemonic, infura_key);
+//       },
+//       network_id: 4,
+//       gas: 4500000,
+//       gasPrice: 10000000000,
+//       networkCheckTimeout: 1000000,
+//       timeoutBlocks: 200
+//   }
      
     // Another network with more advanced options...
     // advanced: {

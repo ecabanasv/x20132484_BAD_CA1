@@ -24,7 +24,7 @@ exports.user_signup_post = function (req, res, next) {
           page: "Signup",
           menuID: "signup",
           name: null,
-          error: "Username or Metamask already registered",
+          error: "Username or Metamask account already registered",
         });
       });
   });

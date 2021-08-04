@@ -55,9 +55,7 @@ body {
 }
 
 /* form labels */
-#lblTitle,
-#lblContent,
-#lblScore {
+.lblInput {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 5px;
@@ -100,6 +98,18 @@ body {
   margin-top: 5px;
   font-size: 18px;
   color: black;
+}
+
+/* input fields - login form */
+.inputField{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* error */
+.error{
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px red;
 }
 
 /* START: CSS Class generated from animista.net */
