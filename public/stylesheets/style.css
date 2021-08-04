@@ -3,12 +3,20 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-h1,
-h2 {
-  color: 582915;
+.hTitle {
+  color: #582915;
   font-weight: bold;
   text-align: center;
-  text-shadow: 1px 1px whitesmoke;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 3px whitesmoke;
+}
+
+.btnAddEntry {
+  text-align: center;
+}
+
+#listEntries {
+  margin: 0px 10px 0px 10px;
 }
 
 #footer {
@@ -34,7 +42,9 @@ h2 {
   text-align: center;
 }
 
-#lblTitle, #lblContent, #lblScore {
+#lblTitle,
+#lblContent,
+#lblScore {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 5px;
@@ -54,7 +64,7 @@ h2 {
 
 .card-title {
   font-weight: bold;
-  text-shadow: 1px 1px #ffffff;
+  text-shadow: 2px 2px 3px whitesmoke;
 }
 
 .card-subtitle {
@@ -64,7 +74,7 @@ h2 {
 #instructions h4 {
   font-weight: bold;
   color: black;
-  text-shadow: 1px 1px gray;
+  text-shadow: 2px 2px 3px gray;
 }
 
 #instructions p {

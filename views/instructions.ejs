@@ -10,8 +10,8 @@
     <% if (name===null) { %>
       <div class="alert alert-warning text-center"
         style="padding: 0; margin-bottom: 0px; border-bottom: 1px solid black;" role="alert">
-        To have full access to the functions of the diary. Please, <a class="link-dark" href="/signup">register</a> and <a class="link-dark"
-          href="/login">login</a> with your username/password.
+        To have full access to the functions of the diary. Please, <a class="link-dark" href="/signup">register</a> and
+        <a class="link-dark" href="/login">login</a> with your username/password.
       </div>
       <% } %>
         <div class="container-fluid">
@@ -21,9 +21,14 @@
               <li class="breadcrumb-item active" aria-current="page">Instructions</li>
             </ol>
           </nav>
-          <h2>
-            <%= page %>
-          </h2>
+          <div class="row justify-content-center">
+            <div class="col col-auto">
+            <h2 class="hTitle">
+              <%= page %>
+            </h2>
+            </div>
+          </div>
+          <br>
           <div id="instructions" class="d-flex justify-content-center">
             <div class="row col-10">
               <h4>Metamask</h4>
