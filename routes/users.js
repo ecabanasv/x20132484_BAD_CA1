@@ -17,7 +17,7 @@ router.get("/login", async function (req, res, next) {
     userName = jwt.verify(token, "JournalJWT").username;
     res.render("index", { page: "Home", menuID: "home", name: userName });
   } else {
-    return res.render("login", { page: "Login", menuID: "login", name: null });
+    return res.render("login", { page: "Login", menuID: "login", name: null, error: null });
   }
 });
 
@@ -40,6 +40,7 @@ router.get("/signup", async function (req, res, next) {
       page: "Signup",
       menuID: "signup",
       name: null,
+      error: null
     });
   }
 });

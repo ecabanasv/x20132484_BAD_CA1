@@ -18,10 +18,13 @@ exports.user_signup_post = function (req, res, next) {
         // if saved succesfully will go to login page
         res.status(201).redirect("/login");
       })
-      // if not send error in json page
+      // if not send to signup page
       .catch((error) => {
-        res.status(500).json({
-          error: error,
+        res.render("signup", {
+          page: "Signup",
+          menuID: "signup",
+          name: null,
+          error: "Username or Metamask already registered",
         });
       });
   });
@@ -37,7 +40,12 @@ exports.user_login_post = function (req, res, next) {
     function (err, user) {
       if (user === null || err) {
         console.log(err);
-        res.sendStatus(500);
+        res.render("login", {
+          page: "Login",
+          menuID: "login",
+          name: null,
+          error: "Invalid username or password",
+        });
         return;
       } else {
         // If user try to login with an different account that not belong to his Metamask address
