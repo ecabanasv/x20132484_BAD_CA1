@@ -10,14 +10,23 @@
     <% if (name===null) { %>
       <div class="alert alert-warning text-center"
         style="padding: 0; margin-bottom: 0px; border-bottom: 1px solid black;" role="alert">
-        To have full access to the functions of the diary. Please, <a class="link-dark" href="/signup">register</a> and <a class="link-dark"
-          href="/login">login</a> with your username/password.
+        To have full access to the functions of the diary. Please, <a class="link-dark" href="/signup">register</a> and
+        <a class="link-dark" href="/login">login</a> with your username/password.
       </div>
       <% } %>
         <div class="container-fluid" style="padding: 0;">
           <!-- <h2>Welcome to Rinkeby Diary</h2> -->
-          <h2 id="smWelcome" class="d-block d-sm-none" style="margin: 20px; padding: 20px;">Welcome to Rinkeby Diary
-          </h2>
+          <div class="smWelcome d-block d-sm-none">
+            <h2 style="margin: 20px; padding: 20px;">Welcome to Rinkeby Diary
+            </h2>
+            <% if (name===null) { %>
+            <a class="btn btn-dark btn-sm" role="button" href="/signup">Signup</a>
+            <a class="btn btn-dark btn-sm" role="button" href="/login">Login</a>
+            <% } else { %>
+              <a class="btn btn-dark btn-sm" role="button" href="/new-entry">Add new entry</a>
+              <a class="btn btn-dark btn-sm" role="button" href="/list-entries">Diary entries</a>
+            <% } %>
+          </div>
           <img class="img-fluid d-none d-sm-block bg-img" src="images/wallpaper.jpg" alt="Background">
         </div>
         <% include partials/footer %>
@@ -28,7 +37,7 @@
     window.ethereum.on('accountsChanged', function (accounts) {
       window.location = "/logout";
     })
-    
+
     window.ethereum.on('chainChanged', function (chainId) {
       window.location = "/logout";
     })
