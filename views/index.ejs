@@ -17,14 +17,14 @@
         <div class="container-fluid" style="padding: 0;">
           <!-- <h2>Welcome to Rinkeby Diary</h2> -->
           <div class="smWelcome d-block d-sm-none">
-            <h2 style="margin: 20px; padding: 20px;">Welcome to Rinkeby Diary
+            <h2 class="h2Index">Welcome to Rinkeby Diary
             </h2>
             <% if (name===null) { %>
-            <a class="btn btn-dark btn-sm" role="button" href="/signup">Signup</a>
-            <a class="btn btn-dark btn-sm" role="button" href="/login">Login</a>
+            <a class="btn btn-outline-dark btn-sm" role="button" href="/signup">Signup</a>
+            <a class="btn btn-outline-dark btn-sm" role="button" href="/login">Login</a>
             <% } else { %>
-              <a class="btn btn-dark btn-sm" role="button" href="/new-entry">Add new entry</a>
-              <a class="btn btn-dark btn-sm" role="button" href="/list-entries">Diary entries</a>
+              <a class="btn btn-outline-dark btn-sm" role="button" href="/new-entry">Add new entry</a>
+              <a class="btn btn-outline-dark btn-sm" role="button" href="/list-entries">Diary entries</a>
             <% } %>
           </div>
           <img class="img-fluid d-none d-sm-block bg-img" src="images/wallpaper.jpg" alt="Background">

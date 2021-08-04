@@ -3,6 +3,20 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.smWelcome {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.h2Index{
+  margin-bottom: 20px;
+  color: black;
+  text-shadow: 1px 1px 3px whitesmoke;
+}
+
+
 .hTitle {
   color: #ffeec9;
   font-weight: bold;
@@ -34,12 +48,6 @@ body {
 .breadcrumb > .active {
   font-weight: bold;
   color: #264653;
-}
-
-.smWelcome {
-  margin: 20px;
-  padding: 20px;
-  text-align: center;
 }
 
 #lblTitle,
