@@ -18,7 +18,7 @@ let DiaryList = contract(diaryListContract);
 DiaryList.setProvider(provider);
 
 // Gas limit for transactions
-let GAS_LIMIT = 1000000;
+let GAS_LIMIT = 10000000;
 
 // Home - router
 router.get("/", function (req, res, next) {

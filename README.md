@@ -75,7 +75,7 @@ Follow steps 1 & 2 before run through one of the two commands below. Make sure y
 npm run dev
 ```
 
-### demon
+### node
 ```bash
 npm start
 ```
